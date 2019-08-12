@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "@neogeek/eslint-config-standards",
+    "@neogeek/eslint-config-standards/.eslintrc-react"
+  ],
+  "plugins": ["react-hooks"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "sort-keys": 0
+  }
+}

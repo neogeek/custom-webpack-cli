@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.jsx": "javascript"
+    },
+    "prettier.eslintIntegration": true,
+    "editor.formatOnSave": true
+}

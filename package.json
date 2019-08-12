@@ -1,0 +1,36 @@
+{
+  "name": "@neogeek/custom-webpack-cli",
+  "description": "A no-frill webpack cli that requires next to nothing to get started with.",
+  "version": "1.0.0",
+  "bin": {
+    "custom-webpack-cli": "./bin/custom-webpack-cli",
+    "custom-webpack-dev-server-cli": "./bin/custom-webpack-dev-server-cli"
+  },
+  "peerDependencies": {
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "styled-components": "4.3.2"
+  },
+  "dependencies": {
+    "@types/react": "16.9.1",
+    "@types/react-dom": "16.8.5",
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "@babel/preset-react": "7.0.0",
+    "@neogeek/eslint-config-standards": "github:neogeek/eslint-config-standards",
+    "awesome-typescript-loader": "5.2.1",
+    "babel-eslint": "10.0.2",
+    "babel-loader": "8.0.6",
+    "babel-plugin-styled-components": "1.10.6",
+    "clean-webpack-plugin": "3.0.0",
+    "copy-webpack-plugin": "5.0.4",
+    "eslint": "6.1.0",
+    "eslint-plugin-react-hooks": "1.7.0",
+    "html-webpack-plugin": "3.2.0",
+    "typescript": "3.5.3",
+    "webpack": "4.39.1",
+    "webpack-cli": "3.3.6",
+    "webpack-dev-server": "3.8.0"
+  },
+  "private": true
+}

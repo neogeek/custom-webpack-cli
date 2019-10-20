@@ -7,30 +7,30 @@
     "custom-webpack-dev-server-cli": "./bin/custom-webpack-dev-server-cli"
   },
   "peerDependencies": {
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "styled-components": "4.3.2"
+    "react": "16.10.2",
+    "react-dom": "16.10.2",
+    "styled-components": "4.4.0"
   },
   "dependencies": {
-    "@types/react": "16.9.2",
-    "@types/react-dom": "16.9.0",
-    "@babel/core": "7.5.5",
-    "@babel/preset-env": "7.5.5",
-    "@babel/preset-react": "7.0.0",
+    "@types/react": "16.9.9",
+    "@types/react-dom": "16.9.2",
+    "@babel/core": "7.6.4",
+    "@babel/preset-env": "7.6.3",
+    "@babel/preset-react": "7.6.3",
     "@neogeek/eslint-config-standards": "github:neogeek/eslint-config-standards",
     "awesome-typescript-loader": "5.2.1",
-    "babel-eslint": "10.0.2",
+    "babel-eslint": "10.0.3",
     "babel-loader": "8.0.6",
     "babel-plugin-styled-components": "1.10.6",
     "clean-webpack-plugin": "3.0.0",
     "copy-webpack-plugin": "5.0.4",
-    "eslint": "6.2.2",
-    "eslint-plugin-react-hooks": "2.0.1",
+    "eslint": "6.5.1",
+    "eslint-plugin-react-hooks": "2.1.2",
     "html-webpack-plugin": "3.2.0",
-    "typescript": "3.5.3",
-    "webpack": "4.39.2",
-    "webpack-cli": "3.3.7",
-    "webpack-dev-server": "3.8.0"
+    "typescript": "3.6.4",
+    "webpack": "4.41.2",
+    "webpack-cli": "3.3.9",
+    "webpack-dev-server": "3.8.2"
   },
   "private": true
 }

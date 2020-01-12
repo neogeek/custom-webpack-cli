@@ -14,9 +14,9 @@
   "dependencies": {
     "@types/react": "16.9.17",
     "@types/react-dom": "16.9.4",
-    "@babel/core": "7.7.7",
-    "@babel/preset-env": "7.7.7",
-    "@babel/preset-react": "7.7.4",
+    "@babel/core": "7.8.0",
+    "@babel/preset-env": "7.8.0",
+    "@babel/preset-react": "7.8.0",
     "@neogeek/eslint-config-standards": "github:neogeek/eslint-config-standards",
     "awesome-typescript-loader": "5.2.1",
     "babel-eslint": "10.0.3",

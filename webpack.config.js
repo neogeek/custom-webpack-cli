@@ -7,24 +7,54 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const cwd = process.cwd();
 
 const config = {
-    'entry': path.join(process.cwd(), 'src/js/index.jsx'),
+    'entry': path.join(
+        process.cwd(),
+        'src/js/index.jsx'
+    ),
     'module': {
         'rules': [
             {
                 'test': /\.tsx?$/u,
-                'include': [path.resolve(cwd, 'src/js')],
-                'loader': path.resolve(cwd, './node_modules/awesome-typescript-loader')
+                'include': [
+                    path.resolve(
+                        cwd,
+                        'src/js'
+                    )
+                ],
+                'loader': path.resolve(
+                    cwd,
+                    './node_modules/awesome-typescript-loader'
+                )
             },
             {
                 'test': /\.(?:js|jsx)$/u,
-                'include': [path.resolve(cwd, 'src/js')],
+                'include': [
+                    path.resolve(
+                        cwd,
+                        'src/js'
+                    )
+                ],
                 'use': {
-                    'loader': path.resolve(cwd, './node_modules/babel-loader'),
+                    'loader': path.resolve(
+                        cwd,
+                        './node_modules/babel-loader'
+                    ),
                     'options': {
-                        'plugins': [path.resolve(cwd, './node_modules/babel-plugin-styled-components')],
+                        'plugins': [
+                            path.resolve(
+                                cwd,
+                                './node_modules/babel-plugin-styled-components'
+                            )
+                        ],
                         'presets': [
-                            path.resolve(cwd, './node_modules/@babel/preset-env'),
-                            path.resolve(cwd, './node_modules/@babel/preset-react')
+                            path.resolve(
+                                cwd,
+                                './node_modules/@babel/preset-env'
+                            ),
+                            path.resolve(
+                                cwd,
+                                './node_modules/@babel/preset-react'
+                            )
                         ]
                     }
                 }
@@ -32,27 +62,45 @@ const config = {
         ]
     },
     'devServer': {
-        'contentBase': path.resolve(cwd, 'dist')
+        'contentBase': path.resolve(
+            cwd,
+            'dist'
+        )
     },
     'plugins': [
         new CleanWebpackPlugin(),
         new CopyPlugin([
             {
-                'from': path.resolve(cwd, 'public'),
-                'to': path.resolve(cwd, 'dist')
+                'from': path.resolve(
+                    cwd,
+                    'public'
+                ),
+                'to': path.resolve(
+                    cwd,
+                    'dist'
+                )
             }
         ]),
         new HtmlWebpackPlugin({'template': 'public/index.html'})
     ],
     'output': {
         'filename': 'js/bundle.min.js',
-        'path': path.resolve(cwd, 'dist'),
+        'path': path.resolve(
+            cwd,
+            'dist'
+        ),
         'publicPath': '/'
     },
     'resolve': {
         'alias': {
-            'react': path.resolve(cwd, './node_modules/react'),
-            'react-dom': path.resolve(cwd, './node_modules/react-dom')
+            'react': path.resolve(
+                cwd,
+                './node_modules/react'
+            ),
+            'react-dom': path.resolve(
+                cwd,
+                './node_modules/react-dom'
+            )
         },
         'extensions': [
             '.ts',

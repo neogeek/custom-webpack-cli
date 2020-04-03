@@ -8,7 +8,7 @@ const cwd = process.cwd();
 
 const config = {
     'entry': path.join(
-        process.cwd(),
+        cwd,
         'src/js/index.jsx'
     ),
     'module': {

@@ -62,10 +62,20 @@ const config = {
         ]
     },
     'devServer': {
+        'compress': true,
         'contentBase': path.resolve(
             cwd,
             'dist'
-        )
+        ),
+        'disableHostCheck': true,
+        'historyApiFallback': {
+            'rewrites': [
+                {
+                    'from': /./u,
+                    'to': '/'
+                }
+            ]
+        }
     },
     'plugins': [
         new CleanWebpackPlugin(),

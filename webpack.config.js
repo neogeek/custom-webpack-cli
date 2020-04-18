@@ -81,14 +81,14 @@ if (process.env.NODE_ENV === 'development') {
     config.devtool = 'source-map';
 }
 
-const localWebpackConfigPath = join(cwd, './webpack.config.js');
+const customWebpackConfigPath = join(cwd, './webpack.custom.js');
 
-if (existsSync(localWebpackConfigPath)) {
-    const localWebpackConfig = require(localWebpackConfigPath);
+if (existsSync(customWebpackConfigPath)) {
+    const localWebpackConfig = require(customWebpackConfigPath);
 
     module.exports = merge(config, localWebpackConfig);
 } else {
-    console.log(`Custom config not found at ${localWebpackConfigPath}`);
+    console.log(`Custom config not found at ${customWebpackConfigPath}`);
 
     module.exports = config;
 }

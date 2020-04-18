@@ -1,6 +1,0 @@
-{
-  "files.associations": {
-    "*.jsx": "javascript"
-  },
-  "editor.formatOnSave": true
-}

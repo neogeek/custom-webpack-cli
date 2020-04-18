@@ -1,4 +1,4 @@
-const path = require('path');
+const { join, resolve } = require('path');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -7,38 +7,29 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const cwd = process.cwd();
 
 const config = {
-    entry: path.join(cwd, 'src/js/index.jsx'),
+    entry: join(cwd, 'src/js/index.jsx'),
     module: {
         rules: [
             {
                 test: /\.tsx?$/u,
-                include: [path.resolve(cwd, 'src/js')],
-                loader: path.resolve(
-                    cwd,
-                    './node_modules/awesome-typescript-loader'
-                )
+                include: [resolve(cwd, 'src/js')],
+                loader: resolve(cwd, './node_modules/awesome-typescript-loader')
             },
             {
                 test: /\.jsx?$/u,
-                include: [path.resolve(cwd, 'src/js')],
+                include: [resolve(cwd, 'src/js')],
                 use: {
-                    loader: path.resolve(cwd, './node_modules/babel-loader'),
+                    loader: resolve(cwd, './node_modules/babel-loader'),
                     options: {
                         plugins: [
-                            path.resolve(
+                            resolve(
                                 cwd,
                                 './node_modules/babel-plugin-styled-components'
                             )
                         ],
                         presets: [
-                            path.resolve(
-                                cwd,
-                                './node_modules/@babel/preset-env'
-                            ),
-                            path.resolve(
-                                cwd,
-                                './node_modules/@babel/preset-react'
-                            )
+                            resolve(cwd, './node_modules/@babel/preset-env'),
+                            resolve(cwd, './node_modules/@babel/preset-react')
                         ]
                     }
                 }
@@ -47,7 +38,7 @@ const config = {
     },
     devServer: {
         compress: true,
-        contentBase: path.resolve(cwd, 'dist'),
+        contentBase: resolve(cwd, 'dist'),
         disableHostCheck: true,
         historyApiFallback: {
             rewrites: [
@@ -62,21 +53,21 @@ const config = {
         new CleanWebpackPlugin(),
         new CopyPlugin([
             {
-                from: path.resolve(cwd, 'public'),
-                to: path.resolve(cwd, 'dist')
+                from: resolve(cwd, 'public'),
+                to: resolve(cwd, 'dist')
             }
         ]),
         new HtmlWebpackPlugin({ template: 'public/index.html' })
     ],
     output: {
         filename: 'js/bundle.min.js',
-        path: path.resolve(cwd, 'dist'),
+        path: resolve(cwd, 'dist'),
         publicPath: '/'
     },
     resolve: {
         alias: {
-            react: path.resolve(cwd, './node_modules/react'),
-            'react-dom': path.resolve(cwd, './node_modules/react-dom')
+            react: resolve(cwd, './node_modules/react'),
+            'react-dom': resolve(cwd, './node_modules/react-dom')
         },
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
         symlinks: false

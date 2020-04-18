@@ -44,6 +44,5 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/neogeek/custom-webpack-cli.git"
-  },
-  "private": true
+  }
 }

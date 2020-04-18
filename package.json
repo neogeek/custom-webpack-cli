@@ -6,6 +6,10 @@
     "custom-webpack-cli": "./bin/custom-webpack-cli",
     "custom-webpack-dev-server-cli": "./bin/custom-webpack-dev-server-cli"
   },
+  "engines": {
+    "node": ">=12.0"
+  },
+  "license": "MIT",
   "peerDependencies": {
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -28,6 +32,18 @@
     "webpack": "4.42.1",
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.10.3"
+  },
+  "authors": [
+    {
+      "name": "Scott Doxey",
+      "email": "hello@scottdoxey.com",
+      "homepage": "http://scottdoxey.com/"
+    }
+  ],
+  "homepage": "https://github.com/neogeek/custom-webpack-cli",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/neogeek/custom-webpack-cli.git"
   },
   "private": true
 }

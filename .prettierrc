@@ -1,12 +1,12 @@
 {
-  "printWidth": 80,
+  "arrowParens": "avoid",
+  "singleQuote": true,
   "tabWidth": 4,
-  "requirePragma": true,
+  "trailingComma": "none",
   "overrides": [
     {
-      "files": ["**/*.json", ".*rc"],
+      "files": ["*.json", ".*rc"],
       "options": {
-        "requirePragma": false,
         "tabWidth": 2
       }
     }

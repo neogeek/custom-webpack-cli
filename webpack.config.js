@@ -19,7 +19,7 @@ const config = {
                 )
             },
             {
-                test: /\.(?:js|jsx)$/u,
+                test: /\.jsx?$/u,
                 include: [path.resolve(cwd, 'src/js')],
                 use: {
                     loader: path.resolve(cwd, './node_modules/babel-loader'),

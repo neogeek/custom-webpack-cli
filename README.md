@@ -34,12 +34,12 @@ npm install neogeek/custom-webpack-cli --save-dev
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>A Simple Component</title>
-  </head>
-  <body>
-    <div id="hello-example"></div>
-  </body>
+    <head>
+        <title>A Simple Component</title>
+    </head>
+    <body>
+        <div id="hello-example"></div>
+    </body>
 </html>
 ```
 
@@ -61,4 +61,29 @@ ReactDOM.render(
     <HelloMessage name="Taylor" />,
     document.getElementById('hello-example')
 );
+```
+
+## Customization
+
+To customize the webpack config, add a `webpack.custom.js` to the root of your project. The contents of that file will be merged with the [webpack.config.js](webpack.config.js) file distributed with this tool.
+
+**webpack.custom.js**
+
+```javascript
+const config = {
+    module: {
+        rules: [
+            {
+                exclude: /node_modules\/(?!custom-component-library)/u,
+                include: /.*/
+            },
+            {
+                exclude: /node_modules\/(?!custom-component-library)/u,
+                include: /.*/
+            }
+        ]
+    }
+};
+
+module.exports = config;
 ```

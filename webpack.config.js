@@ -1,4 +1,7 @@
+const { existsSync } = require('fs');
 const { join, resolve } = require('path');
+
+const merge = require('lodash.merge');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -78,4 +81,14 @@ if (process.env.NODE_ENV === 'development') {
     config.devtool = 'source-map';
 }
 
-module.exports = config;
+const localWebpackConfigPath = join(cwd, './webpack.config.js');
+
+if (existsSync(localWebpackConfigPath)) {
+    const localWebpackConfig = require(localWebpackConfigPath);
+
+    module.exports = merge(config, localWebpackConfig);
+} else {
+    console.log(`Custom config not found at ${localWebpackConfigPath}`);
+
+    module.exports = config;
+}

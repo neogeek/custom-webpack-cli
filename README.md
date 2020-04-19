@@ -1,11 +1,11 @@
-# custom-webpack-cli
+# @neogeek/custom-webpack-cli
 
 > 🎒 A no-frill webpack cli that requires next to nothing to get started.
 
 ## Install
 
 ```bash
-npm install neogeek/custom-webpack-cli --save-dev
+$ npm install @neogeek/custom-webpack-cli --save-dev
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ npm install neogeek/custom-webpack-cli --save-dev
         "styled-components": "5.1.0"
     },
     "devDependencies": {
-        "@neogeek/custom-webpack-cli": "neogeek/custom-webpack-cli"
+        "@neogeek/custom-webpack-cli": "1.0.0"
     },
     "scripts": {
         "start": "custom-webpack-dev-server-cli",

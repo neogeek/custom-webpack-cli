@@ -2,6 +2,8 @@
 
 > 🎒 A no-frill webpack cli that requires next to nothing to get started.
 
+[![NPM Version](http://img.shields.io/npm/v/@neogeek/custom-webpack-cli.svg?style=flat)](https://www.npmjs.org/package/@neogeek/custom-webpack-cli)
+
 ## Install
 
 ```bash

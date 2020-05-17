@@ -54,12 +54,11 @@ const config = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new CopyPlugin([
-            {
-                from: resolve(cwd, 'public'),
-                to: resolve(cwd, 'dist')
-            }
-        ]),
+        new CopyPlugin({
+            patterns: [
+                { from: resolve(cwd, 'public'), to: resolve(cwd, 'dist') }
+            ]
+        }),
         new HtmlWebpackPlugin({ template: 'public/index.html' })
     ],
     output: {

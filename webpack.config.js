@@ -50,7 +50,8 @@ const config = {
                     to: '/'
                 }
             ]
-        }
+        },
+        open: true
     },
     plugins: [
         new CleanWebpackPlugin(),

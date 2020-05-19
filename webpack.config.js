@@ -63,7 +63,7 @@ const config = {
                 }
             ]
         }),
-        new HtmlWebpackPlugin({ template: 'public/index.html' })
+        new HtmlWebpackPlugin({ template: 'src/index.html' })
     ],
     output: {
         filename: 'js/bundle.min.js',

@@ -31,7 +31,7 @@ $ npm install @neogeek/custom-webpack-cli --save-dev
 }
 ```
 
-**public/index.html**
+**src/index.html**
 
 ```html
 <!DOCTYPE html>

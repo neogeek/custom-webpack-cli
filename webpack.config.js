@@ -81,18 +81,20 @@ const config = {
     }
 };
 
-if (process.env.NODE_ENV === 'development') {
-    config.devtool = 'source-map';
-}
+module.exports = (_, { mode }) => {
+    if (mode === 'development') {
+        config.devtool = 'source-map';
+    }
 
-const customWebpackConfigPath = join(cwd, './webpack.custom.js');
+    const customWebpackConfigPath = join(cwd, './webpack.custom.js');
 
-if (existsSync(customWebpackConfigPath)) {
-    const localWebpackConfig = require(customWebpackConfigPath);
+    if (existsSync(customWebpackConfigPath)) {
+        const localWebpackConfig = require(customWebpackConfigPath);
 
-    module.exports = merge(config, localWebpackConfig);
-} else {
-    console.log(`Custom config not found at ${customWebpackConfigPath}`);
+        return merge(config, localWebpackConfig);
+    } else {
+        console.log(`Custom config not found at ${customWebpackConfigPath}`);
 
-    module.exports = config;
-}
+        return config;
+    }
+};

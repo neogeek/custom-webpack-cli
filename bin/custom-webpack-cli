@@ -8,4 +8,4 @@ DIR=$(
     echo $(pwd -P)
 )
 
-"${NODE_MODULES_BIN}"/webpack --config "${DIR}"/../webpack.config.js --mode=production
+"${NODE_MODULES_BIN}"/webpack --config "${DIR}"/../webpack.config.js --mode=production $@

@@ -25,8 +25,8 @@ $ npm install @neogeek/custom-webpack-cli --save-dev
         "@neogeek/custom-webpack-cli": "2.0.0"
     },
     "scripts": {
-        "start": "custom-webpack-dev-server-cli",
-        "build": "custom-webpack-cli"
+        "start": "custom-webpack-dev-server-cli --port 5000",
+        "build": "custom-webpack-cli --port 5000"
     }
 }
 ```

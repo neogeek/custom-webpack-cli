@@ -16,6 +16,14 @@ const config = {
     module: {
         rules: [
             {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    resolve(node_modules, 'style-loader'),
+                    resolve(node_modules, 'css-loader'),
+                    resolve(node_modules, 'sass-loader')
+                ]
+            },
+            {
                 test: /\.tsx?$/u,
                 include: [resolve(cwd, 'src/js')],
                 loader: resolve(node_modules, 'awesome-typescript-loader')
@@ -78,7 +86,7 @@ const config = {
             react: resolve(cwd, './node_modules/react'),
             'react-dom': resolve(cwd, './node_modules/react-dom')
         },
-        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.sass', '.scss'],
         symlinks: false
     }
 };

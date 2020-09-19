@@ -9,6 +9,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const cwd = process.cwd();
 
+const node_modules = resolve(cwd, 'node_modules');
+
 const config = {
     entry: join(cwd, 'src/js/index.jsx'),
     module: {
@@ -16,23 +18,23 @@ const config = {
             {
                 test: /\.tsx?$/u,
                 include: [resolve(cwd, 'src/js')],
-                loader: resolve(cwd, './node_modules/awesome-typescript-loader')
+                loader: resolve(node_modules, 'awesome-typescript-loader')
             },
             {
                 test: /\.jsx?$/u,
                 include: [resolve(cwd, 'src/js')],
                 use: {
-                    loader: resolve(cwd, './node_modules/babel-loader'),
+                    loader: resolve(node_modules, 'babel-loader'),
                     options: {
                         plugins: [
                             resolve(
-                                cwd,
-                                './node_modules/babel-plugin-styled-components'
+                                node_modules,
+                                'babel-plugin-styled-components'
                             )
                         ],
                         presets: [
-                            resolve(cwd, './node_modules/@babel/preset-env'),
-                            resolve(cwd, './node_modules/@babel/preset-react')
+                            resolve(node_modules, '@babel/preset-env'),
+                            resolve(node_modules, '@babel/preset-react')
                         ]
                     }
                 }

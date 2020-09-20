@@ -65,6 +65,10 @@ ReactDOM.render(
 );
 ```
 
+## Static Files
+
+All static files (images, audio, video files) should be placed in a folder names `public/` at the root of the project.
+
 ## Customization
 
 To customize the webpack config, add a `webpack.custom.js` to the root of your project. The contents of that file will be merged with the [webpack.config.js](webpack.config.js) file distributed with this tool.

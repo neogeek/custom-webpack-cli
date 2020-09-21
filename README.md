@@ -80,10 +80,17 @@ const config = {
     module: {
         rules: [
             {
+                test: /\.s[ac]ss$/i,
                 exclude: /node_modules\/(?!custom-component-library)/u,
                 include: /.*/
             },
             {
+                test: /\.tsx?$/u,
+                exclude: /node_modules\/(?!custom-component-library)/u,
+                include: /.*/
+            },
+            {
+                test: /\.jsx?$/u,
                 exclude: /node_modules\/(?!custom-component-library)/u,
                 include: /.*/
             }

@@ -81,6 +81,7 @@ const config = {
         path: resolve(cwd, 'dist'),
         publicPath: '/'
     },
+    performance: { hints: false },
     resolve: {
         alias: {
             react: resolve(cwd, './node_modules/react'),

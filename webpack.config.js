@@ -46,6 +46,14 @@ const config = {
                         ]
                     }
                 }
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                use: [
+                    {
+                        loader: resolve(node_modules, 'file-loader')
+                    }
+                ]
             }
         ]
     },

@@ -42,7 +42,12 @@ const config = {
                         ],
                         presets: [
                             resolve(node_modules, '@babel/preset-env'),
-                            resolve(node_modules, '@babel/preset-react')
+                            [
+                                resolve(node_modules, '@babel/preset-react'),
+                                {
+                                    runtime: 'automatic'
+                                }
+                            ]
                         ]
                     }
                 }

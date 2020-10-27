@@ -17,8 +17,8 @@ $ npm install @neogeek/custom-webpack-cli --save-dev
 ```json
 {
     "dependencies": {
-        "react": "17.0.0",
-        "react-dom": "17.0.0",
+        "react": "17.0.1",
+        "react-dom": "17.0.1",
         "styled-components": "5.2.0"
     },
     "devDependencies": {

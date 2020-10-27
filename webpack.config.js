@@ -11,6 +11,10 @@ const cwd = process.cwd();
 
 const node_modules = resolve(cwd, 'node_modules');
 
+const reactMajorVersion = require(resolve(node_modules, 'react/package.json'))
+    .version.toString()
+    .split('.')[0];
+
 const config = {
     entry: join(cwd, 'src/js/index.jsx'),
     module: {
@@ -45,7 +49,10 @@ const config = {
                             [
                                 resolve(node_modules, '@babel/preset-react'),
                                 {
-                                    runtime: 'automatic'
+                                    runtime:
+                                        reactMajorVersion >= 17
+                                            ? 'automatic'
+                                            : 'classic'
                                 }
                             ]
                         ]

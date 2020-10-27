@@ -94,7 +94,7 @@ const config = {
                 }
             ]
         }),
-        new HtmlWebpackPlugin({ template: 'src/index.html' })
+        new HtmlWebpackPlugin({ template: resolve(cwd, 'src/index.html') })
     ],
     output: {
         filename: 'js/bundle.min.js',

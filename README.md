@@ -38,38 +38,14 @@ $ npm install @neogeek/custom-webpack-cli --save-dev
 }
 ```
 
-**src/index.html**
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>A Simple Component</title>
-    </head>
-    <body>
-        <div id="hello-example"></div>
-    </body>
-</html>
-```
-
 **src/js/index.jsx**
 
-<https://reactjs.org/#a-simple-component>
-
 ```javascript
-import React from 'react';
 import ReactDOM from 'react-dom';
 
-class HelloMessage extends React.Component {
-    render() {
-        return <div>Hello {this.props.name}</div>;
-    }
-}
+const HelloMessage = ({ name }) => <div>Hello {name}</div>;
 
-ReactDOM.render(
-    <HelloMessage name="Taylor" />,
-    document.getElementById('hello-example')
-);
+ReactDOM.render(<HelloMessage name="Taylor" />, document.querySelector('body'));
 ```
 
 ## Static Files

@@ -4,6 +4,13 @@
 
 [![NPM Version](http://img.shields.io/npm/v/@neogeek/custom-webpack-cli.svg?style=flat)](https://www.npmjs.org/package/@neogeek/custom-webpack-cli)
 
+## Features
+
+-   React 17
+-   TypeScript 4
+-   Styled Components
+-   Sass
+
 ## Install
 
 ```bash

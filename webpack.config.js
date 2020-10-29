@@ -16,7 +16,7 @@ const reactMajorVersion = require(resolve(node_modules, 'react/package.json'))
     .split('.')[0];
 
 const config = {
-    entry: join(cwd, 'src/js/index.jsx'),
+    entry: join(cwd, 'src/js/index.jsx?'),
     module: {
         rules: [
             {

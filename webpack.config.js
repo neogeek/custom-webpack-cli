@@ -6,6 +6,7 @@ const merge = require('lodash.merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BuildInfoPlugin = require('build-info-webpack-plugin');
 
 const cwd = process.cwd();
 
@@ -84,6 +85,7 @@ const config = {
         open: true
     },
     plugins: [
+        BuildInfoPlugin,
         new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [

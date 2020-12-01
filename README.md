@@ -29,7 +29,7 @@ $ npm install @neogeek/custom-webpack-cli --save-dev
         "styled-components": "5.2.1"
     },
     "devDependencies": {
-        "@neogeek/custom-webpack-cli": "2.9.0"
+        "@neogeek/custom-webpack-cli": "2.9.1"
     },
     "scripts": {
         "start": "custom-webpack-dev-server-cli --port 5000",

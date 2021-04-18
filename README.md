@@ -24,9 +24,9 @@ $ npm install @neogeek/custom-webpack-cli --save-dev
 ```json
 {
     "dependencies": {
-        "react": "17.0.1",
-        "react-dom": "17.0.1",
-        "styled-components": "5.2.1"
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "styled-components": "^5.2.3"
     },
     "devDependencies": {
         "@neogeek/custom-webpack-cli": "2.11.0"
@@ -78,6 +78,10 @@ const config = {
                 include: /.*/
             }
         ]
+    },
+    devServer: {
+        open: true,
+        openPage: 'blog/'
     }
 };
 

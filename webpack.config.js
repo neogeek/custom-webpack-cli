@@ -72,8 +72,10 @@ const config = {
     },
     devServer: {
         compress: true,
-        contentBase: resolve(cwd, 'dist'),
-        disableHostCheck: true,
+        static: {
+            directory: resolve(cwd, 'dist')
+        },
+        allowedHosts: 'all',
         historyApiFallback: {
             rewrites: [
                 {

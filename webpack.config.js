@@ -31,7 +31,7 @@ const config = {
             {
                 test: /\.tsx?$/u,
                 include: [resolve(cwd, 'src/js')],
-                loader: resolve(node_modules, 'awesome-typescript-loader')
+                loader: resolve(node_modules, 'ts-loader')
             },
             {
                 test: /\.jsx?$/u,

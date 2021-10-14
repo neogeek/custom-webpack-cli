@@ -6,10 +6,10 @@
 
 ## Features
 
--   React 17
--   TypeScript 4
--   Styled Components
--   Sass
+- React 17
+- TypeScript 4
+- Styled Components
+- Sass
 
 ## Install
 
@@ -23,18 +23,18 @@ $ npm install @neogeek/custom-webpack-cli --save-dev
 
 ```json
 {
-    "dependencies": {
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "styled-components": "^5.2.3"
-    },
-    "devDependencies": {
-        "@neogeek/custom-webpack-cli": "2.13.0"
-    },
-    "scripts": {
-        "start": "custom-webpack-dev-server-cli --port 5000",
-        "build": "custom-webpack-cli"
-    }
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.2.3"
+  },
+  "devDependencies": {
+    "@neogeek/custom-webpack-cli": "2.13.0"
+  },
+  "scripts": {
+    "start": "custom-webpack-dev-server-cli --port 5000",
+    "build": "custom-webpack-cli"
+  }
 }
 ```
 
@@ -60,29 +60,29 @@ To customize the webpack config, add a `webpack.custom.js` to the root of your p
 
 ```javascript
 const config = {
-    module: {
-        rules: [
-            {
-                test: /\.s[ac]ss$/i,
-                exclude: /node_modules\/(?!custom-component-library)/u,
-                include: /.*/
-            },
-            {
-                test: /\.tsx?$/u,
-                exclude: /node_modules\/(?!custom-component-library)/u,
-                include: /.*/
-            },
-            {
-                test: /\.jsx?$/u,
-                exclude: /node_modules\/(?!custom-component-library)/u,
-                include: /.*/
-            }
-        ]
-    },
-    devServer: {
-        open: true,
-        openPage: 'blog/'
-    }
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        exclude: /node_modules\/(?!custom-component-library)/u,
+        include: /.*/
+      },
+      {
+        test: /\.tsx?$/u,
+        exclude: /node_modules\/(?!custom-component-library)/u,
+        include: /.*/
+      },
+      {
+        test: /\.jsx?$/u,
+        exclude: /node_modules\/(?!custom-component-library)/u,
+        include: /.*/
+      }
+    ]
+  },
+  devServer: {
+    open: true,
+    openPage: 'blog/'
+  }
 };
 
 module.exports = config;

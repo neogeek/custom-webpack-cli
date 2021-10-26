@@ -56,10 +56,10 @@ All static files (images, audio, video files) should be placed in a folder names
 
 To customize the webpack config, add a `webpack.custom.js` to the root of your project. The contents of that file will be merged with the [webpack.config.js](webpack.config.js) file distributed with this tool.
 
-**webpack.custom.js**
+### Transpile Custom `node_module` Packages
 
 ```javascript
-const config = {
+module.exports = {
   module: {
     rules: [
       {
@@ -78,12 +78,37 @@ const config = {
         include: /.*/
       }
     ]
-  },
+  }
+};
+```
+
+### Open Page on Launch
+
+```javascript
+module.exports = {
   devServer: {
     open: true,
     openPage: 'blog/'
   }
 };
+```
 
-module.exports = config;
+### Compile as a CommonJS Module (without including React & ReactDOM)
+
+```javascript
+module.exports = {
+  externals: {
+    react: 'react',
+    reactDOM: 'react-dom'
+  },
+  output: {
+    filename: 'bundle.min.js',
+    path: resolve(cwd, 'dist'),
+    publicPath: '/',
+    library: {
+      name: 'Library Name',
+      type: 'commonjs2'
+    }
+  }
+};
 ```

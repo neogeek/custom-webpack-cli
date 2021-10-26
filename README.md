@@ -96,6 +96,8 @@ module.exports = {
 ### Compile as a CommonJS Module (without including React & ReactDOM)
 
 ```javascript
+const { resolve } = require('path');
+
 module.exports = {
   externals: {
     react: 'react',
@@ -103,10 +105,9 @@ module.exports = {
   },
   output: {
     filename: 'bundle.min.js',
-    path: resolve(cwd, 'dist'),
+    path: resolve(process.cwd(), 'dist'),
     publicPath: '/',
     library: {
-      name: 'Library Name',
       type: 'commonjs2'
     }
   }

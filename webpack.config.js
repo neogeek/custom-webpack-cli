@@ -22,6 +22,8 @@ const config = {
         rules: [
             {
                 test: /\.s[ac]ss$/i,
+                include: /.*/,
+                exclude: /node_modules/u,
                 use: [
                     resolve(node_modules, 'style-loader'),
                     resolve(node_modules, 'css-loader'),
@@ -30,12 +32,14 @@ const config = {
             },
             {
                 test: /\.tsx?$/u,
-                include: [resolve(cwd, 'src/js')],
+                include: /.*/,
+                exclude: /node_modules/u,
                 loader: resolve(node_modules, 'ts-loader')
             },
             {
                 test: /\.jsx?$/u,
-                include: [resolve(cwd, 'src/js')],
+                include: /.*/,
+                exclude: /node_modules/u,
                 use: {
                     loader: resolve(node_modules, 'babel-loader'),
                     options: {

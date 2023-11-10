@@ -10,10 +10,10 @@ WEBPACK_CONFIG_PATH=$(realpath "${BIN_DIR}/../webpack.config.js")
 
 if [[ -f "${NODE_MODULES_BIN_DIR}/webpack" && -f "${WEBPACK_CONFIG_PATH}" ]]; then
 
-    "${NODE_MODULES_BIN_DIR}/webpack" serve --config "${WEBPACK_CONFIG_PATH}" --mode=production "$@"
+    "${NODE_MODULES_BIN_DIR}/webpack" --config "${WEBPACK_CONFIG_PATH}" --mode=production "$@"
 
 elif [[ -f "${LOCAL_NODE_MODULES_BIN_DIR}/webpack" && -f "${WEBPACK_CONFIG_PATH}" ]]; then
 
-    "${LOCAL_NODE_MODULES_BIN_DIR}/webpack" serve --config "${WEBPACK_CONFIG_PATH}" --mode=production "$@"
+    "${LOCAL_NODE_MODULES_BIN_DIR}/webpack" --config "${WEBPACK_CONFIG_PATH}" --mode=production "$@"
 
 fi

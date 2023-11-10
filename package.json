@@ -1,7 +1,7 @@
 {
   "name": "@neogeek/custom-webpack-cli",
   "description": "A no-frill webpack cli that requires next to nothing to get started with.",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "bin": {
     "custom-webpack-cli": "./bin/custom-webpack-cli",
     "custom-webpack-dev-server-cli": "./bin/custom-webpack-dev-server-cli"

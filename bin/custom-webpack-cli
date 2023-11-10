@@ -1,11 +1,19 @@
 #!/bin/bash
 
-NODE_MODULES_BIN=$(dirname ${0})
+NODE_MODULES_BIN_DIR=$(dirname "${0}")
 
-DIR=$(
-    cd $(dirname $0)
-    cd $(dirname $(readlink $0))
-    echo $(pwd -P)
-)
+BIN_DIR=$(dirname "$(realpath "${0}")")
 
-"${NODE_MODULES_BIN}"/webpack --config "${DIR}"/../webpack.config.js --mode=production $@
+LOCAL_NODE_MODULES_BIN_DIR=$(realpath "${BIN_DIR}/../node_modules/.bin")
+
+WEBPACK_CONFIG_PATH=$(realpath "${BIN_DIR}/../webpack.config.js")
+
+if [[ -f "${NODE_MODULES_BIN_DIR}/webpack" && -f "${WEBPACK_CONFIG_PATH}" ]]; then
+
+    "${NODE_MODULES_BIN_DIR}/webpack" serve --config "${WEBPACK_CONFIG_PATH}" --mode=production "$@"
+
+elif [[ -f "${LOCAL_NODE_MODULES_BIN_DIR}/webpack" && -f "${WEBPACK_CONFIG_PATH}" ]]; then
+
+    "${LOCAL_NODE_MODULES_BIN_DIR}/webpack" serve --config "${WEBPACK_CONFIG_PATH}" --mode=production "$@"
+
+fi

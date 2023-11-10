@@ -1,4 +1,4 @@
-const { existsSync } = require('fs');
+const { existsSync, writeFileSync } = require('fs');
 const { join, resolve } = require('path');
 
 const merge = require('lodash.merge');
@@ -10,14 +10,59 @@ const BuildInfoPlugin = require('build-info-webpack-plugin');
 
 const cwd = process.cwd();
 
-const node_modules = resolve(cwd, 'node_modules');
+const nodeModules = resolve(cwd, 'node_modules');
 
-const reactMajorVersion = require(resolve(node_modules, 'react/package.json'))
+const localNodeModules = resolve(__dirname, 'node_modules');
+
+const resolveNodeModule = name => {
+    if (existsSync(join(nodeModules, name))) {
+        return resolve(nodeModules, name);
+    } else if (existsSync(join(localNodeModules, name))) {
+        return resolve(localNodeModules, name);
+    }
+
+    throw new Error(`Can't locate ${name} module.`);
+};
+
+const reactMajorVersion = require(resolve(nodeModules, 'react/package.json'))
     .version.toString()
     .split('.')[0];
 
+const entryJavaScriptFile = join(cwd, 'src/js/index.jsx');
+const entryTypeScriptFile = join(cwd, 'src/js/index.tsx');
+
+const tsconfigPath = join(cwd, 'tsconfig.json');
+
+if (existsSync(entryTypeScriptFile) && !existsSync(tsconfigPath)) {
+    writeFileSync(
+        tsconfigPath,
+        JSON.stringify(
+            {
+                compilerOptions: {
+                    esModuleInterop: true,
+                    forceConsistentCasingInFileNames: true,
+                    moduleResolution: 'node',
+                    skipLibCheck: true,
+                    strict: true,
+                    jsx: 'react-jsx',
+                    module: 'esnext',
+                    target: 'es6'
+                },
+                include: ['./src'],
+                exclude: ['node_modules']
+            },
+            null,
+            2
+        )
+    );
+}
+
 const config = {
-    entry: join(cwd, 'src/js/index.jsx'),
+    entry: existsSync(entryJavaScriptFile)
+        ? entryJavaScriptFile
+        : existsSync(entryTypeScriptFile)
+        ? entryTypeScriptFile
+        : null,
     module: {
         rules: [
             {
@@ -25,34 +70,31 @@ const config = {
                 include: /.*/,
                 exclude: /node_modules/u,
                 use: [
-                    resolve(node_modules, 'style-loader'),
-                    resolve(node_modules, 'css-loader'),
-                    resolve(node_modules, 'sass-loader')
+                    resolveNodeModule('style-loader'),
+                    resolveNodeModule('css-loader'),
+                    resolveNodeModule('sass-loader')
                 ]
             },
             {
                 test: /\.tsx?$/u,
                 include: /.*/,
                 exclude: /node_modules/u,
-                loader: resolve(node_modules, 'ts-loader')
+                loader: resolveNodeModule('ts-loader')
             },
             {
                 test: /\.jsx?$/u,
                 include: /.*/,
                 exclude: /node_modules/u,
                 use: {
-                    loader: resolve(node_modules, 'babel-loader'),
+                    loader: resolveNodeModule('babel-loader'),
                     options: {
                         plugins: [
-                            resolve(
-                                node_modules,
-                                'babel-plugin-styled-components'
-                            )
+                            resolveNodeModule('babel-plugin-styled-components')
                         ],
                         presets: [
-                            resolve(node_modules, '@babel/preset-env'),
+                            resolveNodeModule('@babel/preset-env'),
                             [
-                                resolve(node_modules, '@babel/preset-react'),
+                                resolveNodeModule('@babel/preset-react'),
                                 {
                                     runtime:
                                         reactMajorVersion >= 17
@@ -68,7 +110,7 @@ const config = {
                 test: /\.(png|jpe?g|gif|svg)$/i,
                 use: [
                     {
-                        loader: resolve(node_modules, 'file-loader')
+                        loader: resolveNodeModule('file-loader')
                     }
                 ]
             }
@@ -102,11 +144,11 @@ const config = {
                 }
             ]
         }),
-        new HtmlWebpackPlugin(
-            existsSync(resolve(cwd, 'src/index.html')) && {
-                template: resolve(cwd, 'src/index.html')
-            }
-        )
+        existsSync(resolve(cwd, 'src/index.html'))
+            ? new HtmlWebpackPlugin({
+                  template: resolve(cwd, 'src/index.html')
+              })
+            : new HtmlWebpackPlugin()
     ],
     output: {
         filename: 'js/bundle.min.js',

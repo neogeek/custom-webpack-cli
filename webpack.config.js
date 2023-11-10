@@ -1,4 +1,4 @@
-const { existsSync } = require('fs');
+const { existsSync, writeFileSync } = require('fs');
 const { join, resolve } = require('path');
 
 const merge = require('lodash.merge');
@@ -28,8 +28,41 @@ const reactMajorVersion = require(resolve(nodeModules, 'react/package.json'))
     .version.toString()
     .split('.')[0];
 
+const entryJavaScriptFile = join(cwd, 'src/js/index.jsx');
+const entryTypeScriptFile = join(cwd, 'src/js/index.tsx');
+
+const tsconfigPath = join(cwd, 'tsconfig.json');
+
+if (existsSync(entryTypeScriptFile) && !existsSync(tsconfigPath)) {
+    writeFileSync(
+        tsconfigPath,
+        JSON.stringify(
+            {
+                compilerOptions: {
+                    esModuleInterop: true,
+                    forceConsistentCasingInFileNames: true,
+                    moduleResolution: 'node',
+                    skipLibCheck: true,
+                    strict: true,
+                    jsx: 'react-jsx',
+                    module: 'esnext',
+                    target: 'es6'
+                },
+                include: ['./src'],
+                exclude: ['node_modules']
+            },
+            null,
+            2
+        )
+    );
+}
+
 const config = {
-    entry: join(cwd, 'src/js/index.jsx'),
+    entry: existsSync(entryJavaScriptFile)
+        ? entryJavaScriptFile
+        : existsSync(entryTypeScriptFile)
+        ? entryTypeScriptFile
+        : null,
     module: {
         rules: [
             {

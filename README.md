@@ -7,7 +7,7 @@
 ## Features
 
 - React 18
-- TypeScript 4
+- TypeScript 5
 - Styled Components
 - Sass
 
@@ -24,9 +24,9 @@ $ npm install @neogeek/custom-webpack-cli --save-dev
 ```json
 {
   "dependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "styled-components": "^5.3.5"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.1"
   },
   "devDependencies": {
     "@neogeek/custom-webpack-cli": "^2.17.0"

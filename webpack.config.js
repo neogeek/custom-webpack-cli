@@ -66,7 +66,7 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.s[ac]ss$/i,
+                test: /\.(s[ac]ss|css)$/i,
                 include: /.*/,
                 exclude: /node_modules/u,
                 use: [

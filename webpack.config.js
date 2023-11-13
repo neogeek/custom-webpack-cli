@@ -28,8 +28,8 @@ const reactMajorVersion = require(resolve(nodeModules, 'react/package.json'))
     .version.toString()
     .split('.')[0];
 
-const entryJavaScriptFile = join(cwd, 'src/js/index.jsx');
-const entryTypeScriptFile = join(cwd, 'src/js/index.tsx');
+const entryJavaScriptFile = join(cwd, 'src/index.jsx');
+const entryTypeScriptFile = join(cwd, 'src/index.tsx');
 
 const tsconfigPath = join(cwd, 'tsconfig.json');
 

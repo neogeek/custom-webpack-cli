@@ -42,11 +42,13 @@ $ npm install @neogeek/custom-webpack-cli --save-dev
 **src/index.jsx**
 
 ```javascript
-import ReactDOM from 'react-dom';
-
 const HelloMessage = ({ name }) => <div>Hello {name}</div>;
 
-ReactDOM.render(<HelloMessage name="Taylor" />, document.querySelector('body'));
+import { createRoot } from 'react-dom/client';
+
+const root = createRoot(document.querySelector('body'));
+
+root.render(<HelloMessage name="Taylor" />);
 ```
 
 ## Static Files

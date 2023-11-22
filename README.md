@@ -39,7 +39,7 @@ $ npm install @neogeek/custom-webpack-cli --save-dev
 }
 ```
 
-**src/js/index.jsx**
+**src/index.jsx**
 
 ```javascript
 import ReactDOM from 'react-dom';

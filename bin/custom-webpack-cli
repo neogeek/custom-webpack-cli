@@ -4,9 +4,9 @@ NODE_MODULES_BIN_DIR=$(dirname "${0}")
 
 BIN_DIR=$(dirname "$(realpath "${0}")")
 
-LOCAL_NODE_MODULES_BIN_DIR=$(realpath "${BIN_DIR}/../node_modules/.bin")
+LOCAL_NODE_MODULES_BIN_DIR=$(realpath "${BIN_DIR}/../node_modules/.bin" 2>/dev/null)
 
-WEBPACK_CONFIG_PATH=$(realpath "${BIN_DIR}/../webpack.config.js")
+WEBPACK_CONFIG_PATH=$(realpath "${BIN_DIR}/../webpack.config.js" 2>/dev/null)
 
 if [[ -f "${NODE_MODULES_BIN_DIR}/webpack" && -f "${WEBPACK_CONFIG_PATH}" ]]; then
 
